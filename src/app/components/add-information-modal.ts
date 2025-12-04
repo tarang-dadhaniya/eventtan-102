@@ -596,6 +596,19 @@ import { FormsModule } from "@angular/forms";
               </div>
             </div>
 
+            <!-- URL Field (shown only for External type) -->
+            <div *ngIf="formData.type === 'External'">
+              <label class="block text-base font-medium text-[#212529] mb-2"
+                >URL</label
+              >
+              <input
+                type="url"
+                [(ngModel)]="formData.url"
+                placeholder="Enter Location"
+                class="w-full h-[50px] px-5 border-2 border-[#E9EBEC] rounded placeholder:text-[#C2C3CB] text-base focus:outline-none focus:border-[#009FD8] transition-colors"
+              />
+            </div>
+
             <!-- Featured Images -->
             <div>
               <label class="block text-base font-medium text-[#212529] mb-2"
