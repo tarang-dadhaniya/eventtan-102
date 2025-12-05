@@ -23,9 +23,7 @@ import { FormsModule } from "@angular/forms";
           class="flex-shrink-0 px-[30px] py-[30px] border-b border-[#CED4DA]"
         >
           <div class="flex items-center justify-between">
-            <h2 class="text-[22px] font-medium text-[#3F4254]">
-              Add Speakers
-            </h2>
+            <h2 class="text-[22px] font-medium text-[#3F4254]">Add Speakers</h2>
             <button
               type="button"
               (click)="onCancel()"
