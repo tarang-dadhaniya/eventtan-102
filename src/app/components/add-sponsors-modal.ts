@@ -175,8 +175,11 @@ import { FormsModule } from "@angular/forms";
                   <select
                     [(ngModel)]="formData.track"
                     name="track"
-                    class="w-full h-[50px] px-5 pr-10 border-2 border-[#E9EBEC] rounded text-[#C2C3CB] text-base focus:outline-none focus:border-[#009FD8] appearance-none bg-white transition-colors"
-                    [class.text-[#212529]]="formData.track"
+                    class="w-full h-[50px] px-5 pr-10 border-2 border-[#E9EBEC] rounded text-base focus:outline-none focus:border-[#009FD8] appearance-none bg-white transition-colors"
+                    [ngClass]="{
+                      'text-[#C2C3CB]': !formData.track,
+                      'text-[#212529]': formData.track,
+                    }"
                     required
                   >
                     <option value="" disabled>Please Select</option>
@@ -359,8 +362,11 @@ import { FormsModule } from "@angular/forms";
                   <select
                     [(ngModel)]="formData.sponsorsFor"
                     name="sponsorsFor"
-                    class="w-full h-[50px] px-5 pr-10 border-2 border-[#E9EBEC] rounded text-[#C2C3CB] text-base focus:outline-none focus:border-[#009FD8] appearance-none bg-white transition-colors"
-                    [class.text-[#212529]]="formData.sponsorsFor"
+                    class="w-full h-[50px] px-5 pr-10 border-2 border-[#E9EBEC] rounded text-base focus:outline-none focus:border-[#009FD8] appearance-none bg-white transition-colors"
+                    [ngClass]="{
+                      'text-[#C2C3CB]': !formData.sponsorsFor,
+                      'text-[#212529]': formData.sponsorsFor,
+                    }"
                   >
                     <option value="" disabled>Please Select</option>
                     <option value="Main Event">Main Event</option>
@@ -783,12 +789,12 @@ import { FormsModule } from "@angular/forms";
           </div>
 
           <div
-            class="flex-shrink-0 flex items-center justify-center gap-4 px-[30px] py-6 border-t border-[#CED4DA]"
+            class="flex-shrink-0 flex items-center justify-end gap-4 px-[30px] py-6 border-t border-[#CED4DA]"
           >
             <button
               type="button"
               (click)="onCancel()"
-              class="flex items-center justify-center gap-3 h-9 px-4 rounded hover:bg-gray-50 transition-colors"
+              class="flex items-center justify-center gap-3 h-9 px-4 rounded bg-[#DEE1EB] hover:bg-[#CED1DB] transition-colors"
             >
               <svg
                 width="12"
@@ -846,6 +852,34 @@ import { FormsModule } from "@angular/forms";
 export class AddSponsorsModalComponent {
   @Input() isOpen = false;
   @Input() editMode = false;
+  @Input() eventId: string = "";
+  @Input() set sponsorData(data: any) {
+    if (data) {
+      this.formData = {
+        companyName: data.companyName || "",
+        email: data.email || "",
+        phone: data.phone || "",
+        track: data.track || "",
+        sequence: data.sequence || 1,
+        companyLogo: data.companyLogo || "",
+        socialMedia: {
+          blogRss: data.socialMedia?.blogRss || false,
+          facebook: data.socialMedia?.facebook || false,
+          twitter: data.socialMedia?.twitter || false,
+        },
+        socialMediaUrls: {
+          blogRss: data.socialMediaUrls?.blogRss || "",
+          facebook: data.socialMediaUrls?.facebook || "",
+          twitter: data.socialMediaUrls?.twitter || "",
+        },
+        sponsorsFor: data.sponsorsFor || "",
+        website: data.website || "",
+        description: data.description || "",
+        documentName: data.documentName || "",
+      };
+    }
+  }
+
   @Output() close = new EventEmitter<void>();
   @Output() submit = new EventEmitter<any>();
 
@@ -917,7 +951,7 @@ export class AddSponsorsModalComponent {
       this.formData.phone &&
       this.formData.track
     ) {
-      this.submit.emit({ ...this.formData });
+      this.submit.emit({ ...this.formData, eventId: this.eventId });
       this.resetForm();
       this.close.emit();
     }
