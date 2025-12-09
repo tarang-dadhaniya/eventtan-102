@@ -3687,6 +3687,7 @@ export class EventSetupComponent implements OnInit {
       }
     });
 
+    this.loadActiveFeatures();
     this.loadSchedules();
     this.loadExhibitors();
     this.loadSpeakers();
@@ -3822,10 +3823,34 @@ export class EventSetupComponent implements OnInit {
     } else {
       this.activeFeatures.push(featureId);
     }
+    this.saveActiveFeatures();
   }
 
   isFeatureActive(featureId: string): boolean {
     return this.activeFeatures.includes(featureId);
+  }
+
+  loadActiveFeatures() {
+    const saved = localStorage.getItem(`activeFeatures_${this.eventId}`);
+    if (saved) {
+      try {
+        this.activeFeatures = JSON.parse(saved);
+      } catch {
+        this.activeFeatures = [
+          "schedule",
+          "exhibitor",
+          "about",
+          "information",
+          "speakers",
+          "sponsors",
+          "social-media",
+        ];
+      }
+    }
+  }
+
+  saveActiveFeatures() {
+    localStorage.setItem(`activeFeatures_${this.eventId}`, JSON.stringify(this.activeFeatures));
   }
 
   getFeatureLabel(featureId: string): string {
@@ -3947,6 +3972,7 @@ export class EventSetupComponent implements OnInit {
       const featureId = event.dataTransfer.getData("featureId");
       if (featureId && !this.activeFeatures.includes(featureId)) {
         this.activeFeatures.push(featureId);
+        this.saveActiveFeatures();
       }
     }
   }
