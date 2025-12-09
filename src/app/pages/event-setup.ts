@@ -1997,38 +1997,38 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     class="bg-white border border-[#CED4DA] rounded-md"
                   >
                     <!-- Header -->
-                    <div
-                      class="px-6 md:px-8 py-6 border-b border-[#CED4DA] flex items-center justify-between"
-                    >
-                      <h2
-                        class="text-xl md:text-2xl font-medium text-[#686868]"
+                    <div class="bg-[#F5F5F5] border border-[#CED4DA] rounded-t">
+                      <div
+                        class="flex items-center justify-between px-6 py-4 gap-6"
                       >
-                        {{ aboutTitle || "About " + eventName }}
-                      </h2>
-                      <button
-                        (click)="editAboutContent = true"
-                        class="px-4 md:px-6 py-2 bg-[#049AD0] hover:bg-[#0385b5] text-white rounded font-semibold transition-colors flex items-center gap-2 whitespace-nowrap"
-                      >
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <h2
+                          class="text-xl font-medium text-[#686868] whitespace-nowrap"
                         >
-                          <path
-                            d="M13.7432 3.76582C14.0231 4.01076 14.0485 4.43749 13.7995 4.71384L6.79025 12.4937C6.53996 12.7715 6.11021 12.7892 5.83796 12.5329L1.78194 8.7145C1.529 8.47637 1.50478 8.07957 1.7218 7.8083C1.96127 7.50897 2.40721 7.46777 2.6922 7.7241L5.83913 10.5547C6.11261 10.8007 6.53366 10.7787 6.78005 10.5056L12.8091 3.82096C13.053 3.55046 13.4691 3.52594 13.7432 3.76582Z"
-                            fill="white"
-                          />
-                        </svg>
-                        Edit Content
-                      </button>
+                          {{ aboutTitle || "About " + eventName }}
+                        </h2>
+                        <button
+                          (click)="editAboutContent = true"
+                          class="flex items-center gap-2 px-4 h-11 bg-[#049AD0] hover:bg-[#0385b5] text-white rounded font-semibold transition-colors whitespace-nowrap"
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.7432 3.76582C14.0231 4.01076 14.0485 4.43749 13.7995 4.71384L6.79025 12.4937C6.53996 12.7715 6.11021 12.7892 5.83796 12.5329L1.78194 8.7145C1.529 8.47637 1.50478 8.07957 1.7218 7.8083C1.96127 7.50897 2.40721 7.46777 2.6922 7.7241L5.83913 10.5547C6.11261 10.8007 6.53366 10.7787 6.78005 10.5056L12.8091 3.82096C13.053 3.55046 13.4691 3.52594 13.7432 3.76582Z"
+                              fill="white"
+                            />
+                          </svg>
+                          Edit Content
+                        </button>
+                      </div>
                     </div>
 
                     <!-- Content -->
-                    <div
-                      class="px-6 md:px-8 py-6 max-h-[400px] overflow-y-auto"
-                    >
+                    <div class="px-6 py-4 max-h-[400px] overflow-y-auto">
                       <p
                         class="text-sm md:text-base text-[#353846] leading-6 md:leading-7 whitespace-pre-wrap"
                       >
@@ -2300,17 +2300,15 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     <div class="border border-[#CED4DA] rounded bg-white">
                       <!-- Header -->
                       <div
-                        class="px-7 py-5 border-b border-[#CED4DA] bg-[#F5F5F5] rounded-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+                        class="px-6 py-4 border-b border-[#CED4DA] bg-[#F5F5F5] rounded-t flex items-center justify-between gap-6"
                       >
                         <h2
-                          class="text-lg sm:text-xl text-[#686868] font-medium"
+                          class="text-xl font-medium text-[#686868] whitespace-nowrap"
                         >
                           Speakers
                         </h2>
 
-                        <div
-                          class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto"
-                        >
+                        <div class="flex-1 flex items-center justify-end gap-3">
                           <!-- Search Bar -->
                           <div class="relative w-full sm:w-[328px]">
                             <input
@@ -3010,46 +3008,48 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     class="bg-white rounded shadow-md border border-[#E9E9E9]"
                   >
                     <!-- Header -->
-                    <div
-                      class="px-6 md:px-8 py-6 border-b border-[#CED4DA] flex items-center justify-between"
-                    >
-                      <h2
-                        class="text-xl md:text-2xl font-medium text-[#686868]"
+                    <div class="bg-[#F5F5F5] border border-[#CED4DA] rounded-t">
+                      <div
+                        class="flex items-center justify-between px-6 py-4 gap-6"
                       >
-                        Image Gallery
-                      </h2>
-                      <button
-                        (click)="openImageGalleryModal()"
-                        class="flex items-center gap-2 px-4 md:px-6 py-2 bg-[#009FD8] hover:bg-[#0385b5] text-white rounded font-semibold transition-colors text-sm md:text-base"
-                      >
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <h2
+                          class="text-xl font-medium text-[#686868] whitespace-nowrap"
                         >
-                          <path
-                            d="M12 5V19"
-                            stroke="white"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                          <path
-                            d="M5 12H19"
-                            stroke="white"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                        <span>Add Image</span>
-                      </button>
+                          Image Gallery
+                        </h2>
+                        <button
+                          (click)="openImageGalleryModal()"
+                          class="flex items-center gap-2 px-4 h-11 bg-[#009FD8] hover:bg-[#0385b5] text-white rounded font-semibold transition-colors whitespace-nowrap"
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12 5V19"
+                              stroke="white"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M5 12H19"
+                              stroke="white"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                          <span>Add Image</span>
+                        </button>
+                      </div>
                     </div>
 
                     <!-- Gallery Grid -->
-                    <div class="p-6 md:p-8">
+                    <div class="p-6">
                       <div
                         *ngIf="galleryImages.length === 0"
                         class="flex flex-col items-center justify-center py-16 text-center"
@@ -3503,6 +3503,7 @@ export class EventSetupComponent implements OnInit {
   informationToDelete: string | null = null;
   sponsorToDelete: string | null = null;
   socialMediaToDelete: string | null = null;
+  galleryImageToDelete: string | null = null;
   editingSocialMedia: SocialMediaEntry | null = null;
   editingGalleryImage: GalleryImage | null = null;
   aboutTitle: string = "About ENGIMACH 2023";
@@ -3686,6 +3687,7 @@ export class EventSetupComponent implements OnInit {
       }
     });
 
+    this.loadActiveFeatures();
     this.loadSchedules();
     this.loadExhibitors();
     this.loadSpeakers();
@@ -3821,10 +3823,37 @@ export class EventSetupComponent implements OnInit {
     } else {
       this.activeFeatures.push(featureId);
     }
+    this.saveActiveFeatures();
   }
 
   isFeatureActive(featureId: string): boolean {
     return this.activeFeatures.includes(featureId);
+  }
+
+  loadActiveFeatures() {
+    const saved = localStorage.getItem(`activeFeatures_${this.eventId}`);
+    if (saved) {
+      try {
+        this.activeFeatures = JSON.parse(saved);
+      } catch {
+        this.activeFeatures = [
+          "schedule",
+          "exhibitor",
+          "about",
+          "information",
+          "speakers",
+          "sponsors",
+          "social-media",
+        ];
+      }
+    }
+  }
+
+  saveActiveFeatures() {
+    localStorage.setItem(
+      `activeFeatures_${this.eventId}`,
+      JSON.stringify(this.activeFeatures),
+    );
   }
 
   getFeatureLabel(featureId: string): string {
@@ -3946,6 +3975,7 @@ export class EventSetupComponent implements OnInit {
       const featureId = event.dataTransfer.getData("featureId");
       if (featureId && !this.activeFeatures.includes(featureId)) {
         this.activeFeatures.push(featureId);
+        this.saveActiveFeatures();
       }
     }
   }
@@ -4035,6 +4065,9 @@ export class EventSetupComponent implements OnInit {
     } else if (this.socialMediaToDelete) {
       this.socialMediaService.deleteSocialMedia(this.socialMediaToDelete);
       this.loadSocialMedia();
+    } else if (this.galleryImageToDelete) {
+      this.imageGalleryService.deleteGalleryImage(this.galleryImageToDelete);
+      this.loadGalleryImages();
     }
     this.closeDeleteModal();
   }
@@ -4047,6 +4080,7 @@ export class EventSetupComponent implements OnInit {
     this.informationToDelete = null;
     this.sponsorToDelete = null;
     this.socialMediaToDelete = null;
+    this.galleryImageToDelete = null;
   }
 
   openExhibitorModal() {
@@ -4276,10 +4310,8 @@ export class EventSetupComponent implements OnInit {
   }
 
   deleteGalleryImage(id: string) {
-    if (confirm("Are you sure you want to delete this image?")) {
-      this.imageGalleryService.deleteGalleryImage(id);
-      this.loadGalleryImages();
-    }
+    this.galleryImageToDelete = id;
+    this.isDeleteModalOpen = true;
   }
 
   deleteSocialMedia(id: string) {
