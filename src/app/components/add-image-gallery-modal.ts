@@ -107,9 +107,7 @@ import { GalleryImage } from "../services/image-gallery.service";
                 <p class="text-[#353846] font-medium">
                   Click to upload or drag and drop
                 </p>
-                <p class="text-sm text-[#878A99]">
-                  PNG, JPG, GIF up to 10MB
-                </p>
+                <p class="text-sm text-[#878A99]">PNG, JPG, GIF up to 10MB</p>
               </div>
               <input
                 #fileInput
@@ -167,7 +165,9 @@ import { GalleryImage } from "../services/image-gallery.service";
 export class AddImageGalleryModalComponent {
   @Input() isOpen = false;
   @Input() editingImage: GalleryImage | null = null;
-  @Output() save = new EventEmitter<Omit<GalleryImage, "id" | "eventId" | "createdAt">>();
+  @Output() save = new EventEmitter<
+    Omit<GalleryImage, "id" | "eventId" | "createdAt">
+  >();
   @Output() close = new EventEmitter<void>();
 
   editMode = false;
@@ -195,7 +195,9 @@ export class AddImageGalleryModalComponent {
   }
 
   isFormValid(): boolean {
-    return this.formData.title.trim() !== "" && this.formData.imageUrl.trim() !== "";
+    return (
+      this.formData.title.trim() !== "" && this.formData.imageUrl.trim() !== ""
+    );
   }
 
   onImageSelected(event: Event): void {

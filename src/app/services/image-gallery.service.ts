@@ -38,9 +38,7 @@ export class ImageGalleryService {
   }
 
   getGalleryImagesByEvent(eventId: string): GalleryImage[] {
-    return this.getGalleryImages().filter(
-      (image) => image.eventId === eventId,
-    );
+    return this.getGalleryImages().filter((image) => image.eventId === eventId);
   }
 
   addGalleryImage(
