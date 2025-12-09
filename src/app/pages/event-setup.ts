@@ -3885,15 +3885,37 @@ export class EventSetupComponent implements OnInit {
   }
 
   openAddSocialMediaModal() {
+    this.editModeSocialMedia = false;
     this.isSocialMediaModalOpen = true;
   }
 
   closeSocialMediaModal() {
     this.isSocialMediaModalOpen = false;
+    this.editModeSocialMedia = false;
   }
 
   onSocialMediaSave(socialMediaData: any) {
-    console.log("Social media saved:", socialMediaData);
+    this.socialMediaService.addSocialMedia(this.eventId, socialMediaData);
+    this.loadSocialMedia();
+    this.closeSocialMediaModal();
+  }
+
+  loadSocialMedia() {
+    this.socialMediaList = this.socialMediaService.getSocialMediaByEvent(this.eventId);
+  }
+
+  deleteSocialMedia(id: string) {
+    this.socialMediaToDelete = id;
+    this.isDeleteModalOpen = true;
+  }
+
+  confirmDeleteSocialMedia() {
+    if (this.socialMediaToDelete) {
+      this.socialMediaService.deleteSocialMedia(this.socialMediaToDelete);
+      this.loadSocialMedia();
+      this.socialMediaToDelete = null;
+      this.isDeleteModalOpen = false;
+    }
   }
 
   formatTime(timeString: string): string {
