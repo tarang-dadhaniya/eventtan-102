@@ -68,7 +68,9 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
       ></app-event-detail-sidebar>
 
       <main class="flex-1 flex flex-col overflow-hidden">
-        <header class="h-24 bg-white border-b border-[#ECECEC] px-4 lg:px-8">
+        <header
+          class="h-20 sm:h-24 bg-white border-b border-[#ECECEC] px-2 sm:px-4 md:px-6 lg:px-8"
+        >
           <div class="h-full flex items-center gap-4">
             <button
               class="w-11 h-11 bg-primary-blue rounded flex items-center justify-center lg:hidden hover:bg-[#0385b5] transition-colors"
@@ -150,14 +152,16 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
         </header>
 
         <div class="flex-1 overflow-auto bg-main-bg">
-          <div class="px-4 lg:px-8 py-6 lg:py-8">
-            <div class="max-w-[1366px] mx-auto">
+          <div class="px-2 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+            <div class="max-w-full sm:max-w-full lg:max-w-[1366px] mx-auto">
               <!-- Tab Navigation -->
-              <div class="flex items-center justify-center gap-0 mb-8">
+              <div
+                class="flex items-center justify-center gap-0 mb-6 sm:mb-8 flex-wrap"
+              >
                 <button
                   (click)="currentTab = 'details'"
                   [class.active]="currentTab === 'details'"
-                  class="tab-button relative flex items-center gap-2 px-6 md:px-10 py-2.5 bg-white border border-[#009FD8] rounded shadow-sm transition-all"
+                  class="tab-button relative flex items-center gap-1 sm:gap-2 px-3 sm:px-6 md:px-10 py-2 sm:py-2.5 text-xs sm:text-sm md:text-base bg-white border border-[#009FD8] rounded shadow-sm transition-all"
                   [ngClass]="{
                     'bg-[#009FD8] text-white': currentTab === 'details',
                     'bg-white text-[#049AD0]': currentTab !== 'details',
@@ -184,17 +188,17 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     />
                   </svg>
                   <span
-                    class="text-sm md:text-base font-medium md:font-semibold whitespace-nowrap"
+                    class="text-xs sm:text-sm md:text-base font-medium md:font-semibold whitespace-nowrap"
                     >Event Details</span
                   >
                 </button>
 
-                <div class="h-px w-16 md:w-28 bg-[#049AD0]"></div>
+                <div class="h-px w-8 sm:w-16 md:w-28 bg-[#049AD0]"></div>
 
                 <button
                   (click)="currentTab = 'features'"
                   [class.active]="currentTab === 'features'"
-                  class="tab-button relative flex items-center gap-2 px-6 md:px-10 py-2.5 bg-white border border-[#049AD0] rounded shadow-sm transition-all"
+                  class="tab-button relative flex items-center gap-1 sm:gap-2 px-3 sm:px-6 md:px-10 py-2 sm:py-2.5 text-xs sm:text-sm md:text-base bg-white border border-[#049AD0] rounded shadow-sm transition-all"
                   [ngClass]="{
                     'bg-[#009FD8] text-white': currentTab === 'features',
                     'bg-white text-[#049AD0]': currentTab !== 'features',
@@ -221,17 +225,17 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     />
                   </svg>
                   <span
-                    class="text-sm md:text-base font-medium md:font-semibold whitespace-nowrap"
+                    class="text-xs sm:text-sm md:text-base font-medium md:font-semibold whitespace-nowrap"
                     >Event Features</span
                   >
                 </button>
 
-                <div class="h-px w-16 md:w-28 bg-[#CED4DA]"></div>
+                <div class="h-px w-8 sm:w-16 md:w-28 bg-[#CED4DA]"></div>
 
                 <button
                   (click)="currentTab = 'content'"
                   [class.active]="currentTab === 'content'"
-                  class="tab-button relative flex items-center gap-2 px-6 md:px-10 py-2.5 bg-white border border-[#049AD0] rounded shadow-sm transition-all"
+                  class="tab-button relative flex items-center gap-1 sm:gap-2 px-3 sm:px-6 md:px-10 py-2 sm:py-2.5 text-xs sm:text-sm md:text-base bg-white border border-[#049AD0] rounded shadow-sm transition-all"
                   [ngClass]="{
                     'bg-[#009FD8] text-white': currentTab === 'content',
                     'bg-white text-[#049AD0]': currentTab !== 'content',
@@ -258,7 +262,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     />
                   </svg>
                   <span
-                    class="text-sm md:text-base font-medium md:font-semibold whitespace-nowrap"
+                    class="text-xs sm:text-sm md:text-base font-medium md:font-semibold whitespace-nowrap"
                     >Features Content</span
                   >
                 </button>
@@ -267,11 +271,11 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
               <!-- Event Details Tab Content -->
               <div
                 *ngIf="currentTab === 'details'"
-                class="bg-white rounded shadow-md border border-[#E9E9E9] p-4 md:p-6 lg:p-8"
+                class="bg-white rounded shadow-md border border-[#E9E9E9] p-3 sm:p-4 md:p-6 lg:p-8"
               >
                 <!-- Logo and Banner Section -->
                 <div
-                  class="grid grid-cols-1 lg:grid-cols-[1fr_2.5fr] gap-4 lg:gap-6 mb-6"
+                  class="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] lg:grid-cols-[1fr_2.5fr] gap-3 sm:gap-4 lg:gap-6 mb-6"
                 >
                   <!-- Logo Upload -->
                   <div class="flex flex-col">
@@ -279,7 +283,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                       >Logo</label
                     >
                     <div
-                      class="w-full h-48 md:h-56 lg:h-64 border border-[#CED4DA] rounded flex items-center justify-center bg-white cursor-pointer hover:bg-gray-50 transition-colors"
+                      class="w-full h-40 sm:h-48 md:h-56 lg:h-64 border border-[#CED4DA] rounded flex items-center justify-center bg-white cursor-pointer hover:bg-gray-50 transition-colors"
                       (click)="logoInput.click()"
                     >
                       <img
@@ -325,7 +329,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                       >Banner</label
                     >
                     <div
-                      class="w-full h-48 md:h-56 lg:h-64 border border-[#CED4DA] rounded flex items-center justify-center bg-white cursor-pointer hover:bg-gray-50 transition-colors overflow-hidden"
+                      class="w-full h-40 sm:h-48 md:h-56 lg:h-64 border border-[#CED4DA] rounded flex items-center justify-center bg-white cursor-pointer hover:bg-gray-50 transition-colors overflow-hidden"
                       (click)="bannerInput.click()"
                     >
                       <img
@@ -662,7 +666,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 
                 <!-- Banner Type and Visibility -->
                 <div
-                  class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6"
+                  class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6"
                 >
                   <!-- Banner Type -->
                   <div class="flex flex-col">
@@ -734,7 +738,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 
                 <!-- Date and Time Zone -->
                 <div
-                  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6"
+                  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6"
                 >
                   <!-- Start Date -->
                   <div class="flex flex-col">
@@ -854,7 +858,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 
                 <!-- City, State, Country -->
                 <div
-                  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6"
+                  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6"
                 >
                   <!-- City -->
                   <div class="flex flex-col">
@@ -1000,7 +1004,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
               <!-- Event Features Tab Content -->
               <div
                 *ngIf="currentTab === 'features'"
-                class="bg-white rounded shadow-md border border-[#E9E9E9] p-4 md:p-6 lg:p-8"
+                class="bg-white rounded shadow-md border border-[#E9E9E9] p-3 sm:p-4 md:p-6 lg:p-8"
               >
                 <!-- Available Label -->
                 <h3 class="text-base font-medium text-[#686868] mb-3">
@@ -1009,7 +1013,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 
                 <!-- Features Grid -->
                 <div
-                  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-4 md:gap-6 mb-6"
+                  class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-6 overflow-x-auto"
                 >
                   <!-- Schedule - Active -->
                   <div
@@ -1017,7 +1021,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     (dragstart)="onDragStartFeature($event, 'schedule')"
                     (dragend)="onDragEndFeature($event)"
                     [class.feature-active]="isFeatureActive('schedule')"
-                    class="feature-card group flex flex-col items-center gap-2 p-4 rounded border border-[#049AD0] shadow-sm transition-all hover:shadow-md cursor-grab active:cursor-grabbing"
+                    class="feature-card group flex flex-col items-center gap-1 sm:gap-2 p-3 sm:p-4 rounded border border-[#049AD0] shadow-sm transition-all hover:shadow-md cursor-grab active:cursor-grabbing"
                   >
                     <div class="relative w-full">
                       <svg
@@ -1080,7 +1084,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                       </button>
                     </div>
                     <span
-                      class="text-sm md:text-base font-medium text-center"
+                      class="text-xs sm:text-sm md:text-base font-medium text-center"
                       [class.text-white]="isFeatureActive('schedule')"
                       [class.text-[#049AD0]]="!isFeatureActive('schedule')"
                     >
@@ -1094,7 +1098,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     draggable="true"
                     (dragstart)="onDragStartFeature($event, feature.id)"
                     (dragend)="onDragEndFeature($event)"
-                    class="feature-card flex flex-col items-center gap-2 p-4 rounded border border-[#CED4DA] shadow-sm transition-all hover:shadow-md hover:border-[#049AD0] bg-white cursor-grab active:cursor-grabbing"
+                    class="feature-card flex flex-col items-center gap-1 sm:gap-2 p-3 sm:p-4 rounded border border-[#CED4DA] shadow-sm transition-all hover:shadow-md hover:border-[#049AD0] bg-white cursor-grab active:cursor-grabbing"
                   >
                     <div class="relative w-full">
                       <div
@@ -1136,7 +1140,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                       </button>
                     </div>
                     <span
-                      class="text-sm md:text-base font-normal text-center text-[#686868]"
+                      class="text-xs sm:text-sm md:text-base font-normal text-center text-[#686868]"
                     >
                       {{ feature.label }}
                     </span>
@@ -1151,24 +1155,26 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 
                   <!-- Selected Features Container -->
                   <div
-                    class="relative w-full rounded border-2 border-dashed transition-colors p-8"
+                    class="relative w-full rounded border-2 border-dashed transition-colors p-4 sm:p-6 md:p-8"
                     [ngClass]="{
                       'border-[#CED4DA] bg-white': !isDragOverSelected,
                       'border-[#049AD0] bg-[#E8F4F8]': isDragOverSelected,
                     }"
-                    style="min-height: 150px;"
+                    style="min-height: auto;"
                     (dragover)="onDragOverSelected($event)"
                     (drop)="onDropSelected($event)"
                     (dragleave)="onDragLeaveSelected($event)"
                   >
                     <!-- Selected Feature Cards -->
-                    <div class="flex flex-wrap gap-6 w-full">
+                    <div
+                      class="flex flex-wrap gap-2 sm:gap-3 md:gap-4 lg:gap-6 w-full"
+                    >
                       <div
                         *ngFor="let featureId of activeFeatures"
                         draggable="true"
                         (dragstart)="onDragStart($event, featureId)"
                         (dragend)="onDragEnd($event)"
-                        class="flex flex-col items-center gap-2 p-4 w-[120px] h-[120px] rounded border border-[#049AD0] shadow-[0_4px_15px_rgba(30,30,45,0.05)] bg-white transition-all hover:shadow-md cursor-move"
+                        class="flex flex-col items-center gap-1 sm:gap-2 p-3 sm:p-4 w-[90px] h-[90px] sm:w-[100px] sm:h-[100px] md:w-[110px] md:h-[110px] lg:w-[120px] lg:h-[120px] rounded border border-[#049AD0] shadow-[0_4px_15px_rgba(30,30,45,0.05)] bg-white transition-all hover:shadow-md cursor-move"
                       >
                         <div
                           class="relative w-full flex-1 flex items-center justify-center"
@@ -1213,7 +1219,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                           </button>
                         </div>
                         <span
-                          class="text-base font-medium text-[#049AD0] text-center leading-tight"
+                          class="text-xs sm:text-sm md:text-base font-medium text-[#049AD0] text-center leading-tight"
                         >
                           {{ getFeatureLabel(featureId) }}
                         </span>
