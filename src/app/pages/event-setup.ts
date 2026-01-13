@@ -3642,11 +3642,13 @@ export class EventSetupComponent implements OnInit {
   editModeInformation = false;
   editModeSponsor = false;
   editModeSocialMedia = false;
+  editModeTestimonials = false;
   editingSchedule: any = null;
   editingExhibitor: any = null;
   editingSpeaker: any = null;
   editingInformation: any = null;
   editingSponsor: any = null;
+  editingTestimonial: any = null;
   isDeleteModalOpen = false;
   scheduleToDelete: string | null = null;
   exhibitorToDelete: string | null = null;
