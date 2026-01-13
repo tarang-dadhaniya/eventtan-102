@@ -4474,6 +4474,49 @@ export class EventSetupComponent implements OnInit {
     this.isDeleteModalOpen = true;
   }
 
+  openAddTestimonialsModal() {
+    this.editModeTestimonials = false;
+    this.editingTestimonial = null;
+    this.isTestimonialsModalOpen = true;
+  }
+
+  editTestimonial(testimonial: any) {
+    this.editModeTestimonials = true;
+    this.editingTestimonial = testimonial;
+    this.isTestimonialsModalOpen = true;
+  }
+
+  closeTestimonialsModal() {
+    this.isTestimonialsModalOpen = false;
+    this.editModeTestimonials = false;
+    this.editingTestimonial = null;
+  }
+
+  onTestimonialsSave(testimonialData: any) {
+    if (this.editModeTestimonials && this.editingTestimonial) {
+      const index = this.testimonialsList.findIndex(
+        (t) => t.id === this.editingTestimonial.id,
+      );
+      if (index > -1) {
+        this.testimonialsList[index] = {
+          ...this.testimonialsList[index],
+          ...testimonialData,
+        };
+      }
+    } else {
+      this.testimonialsList.push({
+        id: Date.now().toString(),
+        ...testimonialData,
+      });
+    }
+    this.closeTestimonialsModal();
+  }
+
+  deleteTestimonial(id: string) {
+    this.testimonialToDelete = id;
+    this.isDeleteModalOpen = true;
+  }
+
   formatTime(timeString: string): string {
     if (!timeString) return "";
     const [hours, minutes] = timeString.split(":");
