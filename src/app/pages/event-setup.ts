@@ -2052,19 +2052,29 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 
                   <!-- Other Features Placeholder -->
                   <!-- Floor Plan Content -->
-                  <ng-container *ngIf="
+                  <ng-container
+                    *ngIf="
                       activeFeatures.length > 0 &&
                       activeFeatures[selectedFeatureIndex] === 'floor-plan'
-                    ">
+                    "
+                  >
                     <div class="flex flex-col gap-0">
                       <!-- Header Container with Title and Controls -->
-                      <div class="bg-[#F5F5F5] border border-[#CED4DA] rounded-t-md">
-                        <div class="flex items-center justify-between px-6 py-4 gap-6">
-                          <h2 class="text-xl font-medium text-[#686868] whitespace-nowrap">
+                      <div
+                        class="bg-[#F5F5F5] border border-[#CED4DA] rounded-t-md"
+                      >
+                        <div
+                          class="flex items-center justify-between px-6 py-4 gap-6"
+                        >
+                          <h2
+                            class="text-xl font-medium text-[#686868] whitespace-nowrap"
+                          >
                             Floor Plan
                           </h2>
 
-                          <div class="flex-1 flex items-center justify-end gap-3">
+                          <div
+                            class="flex-1 flex items-center justify-end gap-3"
+                          >
                             <!-- Search Bar -->
                             <div class="relative">
                               <input
@@ -2129,19 +2139,33 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                       </div>
 
                       <!-- Table -->
-                      <div class="border border-[#CED4DA] border-t-0 rounded-b-md overflow-hidden">
+                      <div
+                        class="border border-[#CED4DA] border-t-0 rounded-b-md overflow-hidden"
+                      >
                         <!-- Table Header Row -->
-                        <div class="bg-white border-b border-[#CED4DA] px-6 py-4">
-                          <div class="grid grid-cols-[80px_1fr_200px_250px_120px] gap-4 items-center">
-                            <div class="text-[#181C32] font-semibold text-base text-center">
+                        <div
+                          class="bg-white border-b border-[#CED4DA] px-6 py-4"
+                        >
+                          <div
+                            class="grid grid-cols-[80px_1fr_200px_250px_120px] gap-4 items-center"
+                          >
+                            <div
+                              class="text-[#181C32] font-semibold text-base text-center"
+                            >
                               Sr. No
                             </div>
-                            <div class="text-[#181C32] font-semibold text-base">Title</div>
-                            <div class="text-[#181C32] font-semibold text-base">Type</div>
+                            <div class="text-[#181C32] font-semibold text-base">
+                              Title
+                            </div>
+                            <div class="text-[#181C32] font-semibold text-base">
+                              Type
+                            </div>
                             <div class="text-[#181C32] font-semibold text-base">
                               Floor Plan Type
                             </div>
-                            <div class="text-[#181C32] font-semibold text-base text-center">
+                            <div
+                              class="text-[#181C32] font-semibold text-base text-center"
+                            >
                               Action
                             </div>
                           </div>
@@ -2168,11 +2192,14 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                                   fill="#CED4DA"
                                 />
                               </svg>
-                              <p class="text-lg font-medium text-[#686868] mb-2">
+                              <p
+                                class="text-lg font-medium text-[#686868] mb-2"
+                              >
                                 No Floor Plans Added
                               </p>
                               <p class="text-sm text-[#878A99]">
-                                Click "Add Floor Plan" to create your first floor plan
+                                Click "Add Floor Plan" to create your first
+                                floor plan
                               </p>
                             </div>
                           </div>
@@ -2182,14 +2209,22 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                             *ngFor="let info of information; let i = index"
                             class="border-b border-[#E9E9E9] px-6 py-4 hover:bg-[#FCFCFE] transition-colors"
                           >
-                            <div class="grid grid-cols-[80px_1fr_200px_250px_120px] gap-4 items-center">
-                              <div class="text-[#353846] font-semibold text-base text-center">
+                            <div
+                              class="grid grid-cols-[80px_1fr_200px_250px_120px] gap-4 items-center"
+                            >
+                              <div
+                                class="text-[#353846] font-semibold text-base text-center"
+                              >
                                 {{ i + 1 }}
                               </div>
-                              <div class="text-[#353846] font-semibold text-base">
+                              <div
+                                class="text-[#353846] font-semibold text-base"
+                              >
                                 {{ info.title }}
                               </div>
-                              <div class="text-[#353846] font-semibold text-base">
+                              <div
+                                class="text-[#353846] font-semibold text-base"
+                              >
                                 {{ info.type }}
                               </div>
                               <div class="flex items-center gap-3">
@@ -2240,7 +2275,9 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                                   />
                                 </svg>
                               </div>
-                              <div class="flex items-center justify-center gap-2">
+                              <div
+                                class="flex items-center justify-center gap-2"
+                              >
                                 <!-- Edit Button -->
                                 <button
                                   (click)="editFloorPlan(info)"
